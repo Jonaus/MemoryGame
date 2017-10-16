@@ -18,7 +18,7 @@ namespace MemoryGame
             Button cardButton = sender as Button;
             if (cardButton != null)
             {
-                cardButton.BackgroundImage = Resources.ace_of_diamonds;
+                cardButton.BackgroundImage = Resources.diamonds;
             }
         }
     }

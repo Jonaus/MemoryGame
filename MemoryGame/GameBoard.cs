@@ -9,21 +9,29 @@ namespace MemoryGame
     {        
         public static void DrawBoard(Form f, Point startPoint, int size, int count, int spacingSize)
         {
+            var cf = CardFactory.CreateFactory("pc");
+
             for (int x = 0; x < count; x++)
             {
                 int xOffset = spacingSize * x;
                 for (int y = 0; y < count; y++)
                 {
+                    var card = cf.CreateCard("s", x, y);
+
                     int yOffset = spacingSize * y;
 
                     Button cardButton = new Button
                     {
-                        BackgroundImage = Resources.ace_of_spades,
+                        BackgroundImage = Resources.spades,
+                        BackColor = Color.White,
                         BackgroundImageLayout = ImageLayout.Stretch,
                         Left = startPoint.X + xOffset + size * x,
                         Top = startPoint.Y + yOffset + size * y,
                         Width = size,
-                        Height = size
+                        Height = size,
+                        Text = card.Symbol.ToString(),
+                        ForeColor = Color.White,
+                        Font = new Font("Arial", 18, FontStyle.Bold)
                     };
                     cardButton.Click += new EventHandler(GameControls.CardButton_Click);
                     f.Controls.Add(cardButton);
