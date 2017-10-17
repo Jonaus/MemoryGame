@@ -1,24 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace MemoryGame
 {
-    public static class GameMenu
+    class GameMenu : ControlsBuilder
     {
-        private static Stopwatch watch = new Stopwatch();
-        private static Button restartButton;
-        private static Label timeLabel;
-        private static int menuWidth;
-        private static int menuHeight;
+        private Stopwatch watch = new Stopwatch();
+        private Button restartButton;
+        private Label timeLabel;
+        private int menuWidth;
+        private int menuHeight;
 
-        public static void DrawMenu(Form f, int width, int height)
+        public GameMenu(Form f, int menuWidth, int menuHeight)
         {
-            menuWidth = width;
-            menuHeight = height;
-            CreateRestartButton(f);
-            CreateLabel(f);
+            this.menuWidth = menuWidth;
+            this.menuHeight = menuHeight;
+
+            controls = new List<Control>();
 
             Timer clock = new Timer();
             clock.Start();
@@ -26,54 +27,56 @@ namespace MemoryGame
             StartStopwatch();
         }
 
-        private static void CreateRestartButton(Form f)
+        public override void BuildLabels()
         {
-            Size buttonSize = new Size(150, menuHeight);
-            restartButton = new Button
-            {
-                Size = buttonSize,
-                Location = new Point(5, menuHeight/2-buttonSize.Height/2),
-                Font = new Font(FontFamily.GenericMonospace, 17, FontStyle.Bold),
-                TextAlign = ContentAlignment.MiddleCenter,
-                Text = "RESTART"
-            };
-            restartButton.Click += new EventHandler(GameControls.RestartButton_Click);
-            f.Controls.Add(restartButton);
-        }
-
-        private static void CreateLabel(Form f)
-        {
+            int leftObPos = restartButton != null ? restartButton.Width + restartButton.Left : 0;
             Size labelSize = new Size(150, menuHeight);
             timeLabel = new Label
             {
                 Size = labelSize,
-                Location = new Point {
-                    X = Math.Max(menuWidth/2-labelSize.Width/2, restartButton.Width+restartButton.Left),
-                    Y = menuHeight/2-labelSize.Height/2
+                Location = new Point
+                {
+                    X = Math.Max(menuWidth / 2 - labelSize.Width / 2, leftObPos),
+                    Y = menuHeight / 2 - labelSize.Height / 2
                 },
                 Font = new Font(FontFamily.GenericMonospace, 16),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Text = "null"
             };
-            f.Controls.Add(timeLabel);
+            controls.Add(timeLabel);
         }
 
-        public static void StartStopwatch()
+        public override void BuildButtons()
+        {
+            Size buttonSize = new Size(150, menuHeight);
+            restartButton = new Button
+            {
+                Size = buttonSize,
+                Location = new Point(5, menuHeight / 2 - buttonSize.Height / 2),
+                Font = new Font(FontFamily.GenericMonospace, 17, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Text = "RESTART"
+            };
+            restartButton.Click += new EventHandler(GameControls.RestartButton_Click);
+            controls.Add(restartButton);
+        }
+
+        public void StartStopwatch()
         {
             watch.Start();
         }
 
-        public static void StopStopwatch()
+        public void StopStopwatch()
         {
             watch.Stop();
         }
 
-        public static void RestartStopwatch()
+        public void RestartStopwatch()
         {
             watch.Restart();
         }
 
-        private static void Timer_Tick(object sender, EventArgs eArgs)
+        private void Timer_Tick(object sender, EventArgs eArgs)
         {
             string elapsedSecs = watch.Elapsed.Seconds.ToString();
             string elapsedMillis = watch.Elapsed.Milliseconds.ToString();

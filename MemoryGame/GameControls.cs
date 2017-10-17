@@ -8,8 +8,8 @@ namespace MemoryGame
     {
         public static void RestartButton_Click(object sender, EventArgs e)
         {
-            // TODO: implement
-            GameMenu.RestartStopwatch();
+            Application.Restart();
+            Environment.Exit(0);
         }
 
         public static void CardButton_Click(object sender, EventArgs e)
