@@ -1,4 +1,4 @@
-﻿using MemoryGame.Properties;
+using MemoryGame.Properties;
 using System;
 using System.Windows.Forms;
 

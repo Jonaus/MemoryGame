@@ -1,4 +1,4 @@
-﻿namespace MemoryGame
+namespace MemoryGame
 {
     class GameScreen
     {
