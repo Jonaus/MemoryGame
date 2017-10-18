@@ -13,15 +13,12 @@ namespace MemoryGame
 
 	    public int Y { get; set; }
 
-        public char Symbol { get; set; }
-
         public Bitmap Picture { get; set; }
 
-	    protected Card(int x, int y, char symbol, Bitmap picture)
+	    protected Card(int x, int y, Bitmap picture)
 	    {
 	        X = x;
 	        Y = y;
-	        Symbol = symbol;
 	        Picture = picture;
 	    }
 	}

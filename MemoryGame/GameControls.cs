@@ -15,13 +15,12 @@ namespace MemoryGame
         public static void CardButton_Click(object sender, EventArgs e)
         {
             // TODO: implement
-            Button cardButton = sender as Button;
-            if (cardButton != null)
+            if (!(sender is Button cardButton)) return;
+            var card = (Card)cardButton.Tag;
+            cardButton.BackgroundImage = card.Picture;
+            if (card is PlayingCard playingCard)
             {
-                var card = (Card)cardButton.Tag;
-                //cardButton.BackgroundImage = Resources.diamonds;
-                cardButton.BackgroundImage = card.Picture;
-                cardButton.Text = card.Symbol.ToString();
+                cardButton.Text = playingCard.Symbol.ToString();
             }
         }
     }

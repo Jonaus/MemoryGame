@@ -9,9 +9,9 @@ namespace MemoryGame
 {
 	public class Hearts : PlayingCard
 	{
-	    private static readonly Bitmap picture = Resources.hearts;
+	    private new static readonly Bitmap Picture = Resources.hearts;
 
-	    public Hearts(int x, int y) : base(x, y, picture)
+	    public Hearts(int x, int y) : base(x, y, Picture)
 	    {
 	    }
 	}

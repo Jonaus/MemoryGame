@@ -10,20 +10,23 @@ namespace MemoryGame
 {
 	public class PlayingCard : Card
 	{
-	    private static readonly char[] Symbols = { '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K', 'A' };
-        private static readonly Random Rnd = new Random();
-        private static readonly object SyncLock = new object();
+	    private readonly char[] _symbols = { '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K', 'A' };
+        private readonly Random _rnd = new Random();
+        private readonly object _syncLock = new object();
 
-        public PlayingCard(int x, int y, Bitmap picture) : base(x, y, RandomSymbol(), picture)
-	    {
-	    }
+        public char Symbol { get; set; }
 
-	    private static char RandomSymbol()
+        public PlayingCard(int x, int y, Bitmap picture) : base(x, y, picture)
+        {
+            Symbol = RandomSymbol();
+        }
+
+	    private char RandomSymbol()
 	    {
-	        lock (SyncLock)
+	        lock (_syncLock)
 	        {
-	            var index = Rnd.Next(0, 11);
-	            return Symbols[index];
+	            var index = _rnd.Next(0, 11);
+	            return _symbols[index];
             }
 	    }
 	}
