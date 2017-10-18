@@ -3,6 +3,8 @@
  */
 
 using System;
+using System.Drawing;
+using MemoryGame.Properties;
 
 namespace MemoryGame
 {
@@ -12,7 +14,7 @@ namespace MemoryGame
         private static readonly Random Rnd = new Random();
         private static readonly object SyncLock = new object();
 
-        public PlayingCard(int x, int y) : base(x, y, RandomSymbol())
+        public PlayingCard(int x, int y, Bitmap picture) : base(x, y, RandomSymbol(), picture)
 	    {
 	    }
 

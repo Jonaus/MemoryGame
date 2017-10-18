@@ -2,6 +2,8 @@
  * @(#) PlayingCardFactory.cs
  */
 
+using MemoryGame.Properties;
+
 namespace MemoryGame
 {
     public class PlayingCardFactory : CardFactory

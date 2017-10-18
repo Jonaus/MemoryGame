@@ -18,7 +18,10 @@ namespace MemoryGame
             Button cardButton = sender as Button;
             if (cardButton != null)
             {
-                cardButton.BackgroundImage = Resources.diamonds;
+                var card = (Card)cardButton.Tag;
+                //cardButton.BackgroundImage = Resources.diamonds;
+                cardButton.BackgroundImage = card.Picture;
+                cardButton.Text = card.Symbol.ToString();
             }
         }
     }

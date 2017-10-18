@@ -3,6 +3,7 @@
  */
 
 using System;
+using System.Drawing;
 
 namespace MemoryGame
 {
@@ -14,11 +15,14 @@ namespace MemoryGame
 
         public char Symbol { get; set; }
 
-	    protected Card(int x, int y, char symbol)
+        public Bitmap Picture { get; set; }
+
+	    protected Card(int x, int y, char symbol, Bitmap picture)
 	    {
 	        X = x;
 	        Y = y;
 	        Symbol = symbol;
+	        Picture = picture;
 	    }
 	}
 }

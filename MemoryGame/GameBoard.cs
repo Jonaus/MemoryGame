@@ -33,20 +33,19 @@ namespace MemoryGame
                 int xOffset = spacingSize * x;
                 for (int y = 0; y < cardCount; y++)
                 {
-                    var card = cf.CreateCard("s", x, y);
-
                     int yOffset = spacingSize * y;
 
                     Button cardButton = new Button
                     {
-                        BackgroundImage = Resources.spades,
+                        Tag = cf.CreateCard("h", x, y),
+                        BackgroundImage = Resources.flipped_card,
                         BackColor = Color.White,
                         BackgroundImageLayout = ImageLayout.Stretch,
                         Left = startPoint.X + xOffset + cardSize * x,
                         Top = startPoint.Y + yOffset + cardSize * y,
                         Width = cardSize,
                         Height = cardSize,
-                        Text = card.Symbol.ToString(),
+                        //Text = card.Symbol.ToString(),
                         ForeColor = Color.White,
                         Font = new Font("Arial", 18, FontStyle.Bold)
                     };

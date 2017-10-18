@@ -96,18 +96,6 @@
     <None Include="Resources\clubs.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ace of clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ace of diamonds.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ace of hearts.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ace of spades.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\diamonds.png" />
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flipped_card.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
