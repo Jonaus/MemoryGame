@@ -1,8 +1,8 @@
-using MemoryGame.Properties;
+using MemoryGame.Data;
 using System;
 using System.Windows.Forms;
 
-namespace MemoryGame
+namespace MemoryGame.UserControls
 {
     public static class GameControls
     {
@@ -14,14 +14,12 @@ namespace MemoryGame
 
         public static void CardButton_Click(object sender, EventArgs e)
         {
-            // TODO: implement
-            if (!(sender is Button cardButton)) return;
-            var card = (Card)cardButton.Tag;
-            cardButton.BackgroundImage = card.Picture;
-            if (card is PlayingCard playingCard)
+            try
             {
-                cardButton.Text = playingCard.Symbol.ToString();
-            }
+                Button cardButton = (Button) sender;
+                Card card = (Card) cardButton.Tag;
+                card.Flip(cardButton);
+            } catch { }
         }
     }
 }

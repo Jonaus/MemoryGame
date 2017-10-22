@@ -13,7 +13,7 @@ namespace MemoryGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MemoryGame());
+            Application.Run(new Form.MemoryGame());
         }
     }
 }

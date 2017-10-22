@@ -2,7 +2,9 @@
  * @(#) CardFactory.cs
  */
 
-namespace MemoryGame
+using MemoryGame.Data;
+
+namespace MemoryGame.Classes
 {
 	public abstract class CardFactory
 	{

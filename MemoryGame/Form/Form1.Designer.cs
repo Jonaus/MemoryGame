@@ -1,6 +1,4 @@
-using System;
-
-namespace MemoryGame
+namespace MemoryGame.Form
 {
     partial class MemoryGame
     {

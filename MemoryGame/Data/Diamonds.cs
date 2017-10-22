@@ -5,7 +5,7 @@
 using System.Drawing;
 using MemoryGame.Properties;
 
-namespace MemoryGame
+namespace MemoryGame.Data
 {
 	public class Diamonds : PlayingCard
 	{
