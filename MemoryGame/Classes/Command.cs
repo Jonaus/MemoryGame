@@ -1,4 +1,4 @@
-﻿namespace MemoryGame.Classes
+namespace MemoryGame.Classes
 {
     public abstract class Command
     {

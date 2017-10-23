@@ -51,5 +51,10 @@ namespace MemoryGame.Form.Parts
                 }
             }
         }
+
+        public override ControlsBuilder Clone()
+        {
+            return (ControlsBuilder) this.MemberwiseClone();
+        }
     }
 }

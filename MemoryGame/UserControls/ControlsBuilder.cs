@@ -11,5 +11,6 @@ namespace MemoryGame.UserControls
 
         public abstract void BuildLabels();
         public abstract void BuildButtons();
+        public abstract ControlsBuilder Clone();
     }
 }

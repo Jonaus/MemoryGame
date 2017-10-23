@@ -42,17 +42,44 @@ namespace MemoryGame.Form.Parts
 
         public override void BuildButtons()
         {
+            Button prevLevel = new Button()
+            {
+                Size = new Size(50, _menuHeight),
+                Location = new Point(5, _menuHeight / 2 - _menuHeight / 2),
+                Font = new Font(FontFamily.GenericMonospace, 17, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Text = "<"
+            };
+            prevLevel.Click += GameControls.PrevLevelButton_Click;
+            controls.Add(prevLevel);
+
             Size buttonSize = new Size(150, _menuHeight);
             _restartButton = new Button
             {
                 Size = buttonSize,
-                Location = new Point(5, _menuHeight / 2 - buttonSize.Height / 2),
+                Location = new Point(prevLevel.Location.X + prevLevel.Size.Width + 5, prevLevel.Location.Y),
                 Font = new Font(FontFamily.GenericMonospace, 17, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Text = "RESTART"
             };
             _restartButton.Click += GameControls.RestartButton_Click;
             controls.Add(_restartButton);
+
+            Button nextLevel = new Button()
+            {
+                Size = new Size(50, _menuHeight),
+                Location = new Point(_restartButton.Location.X + _restartButton.Size.Width + 5, _restartButton.Location.Y),
+                Font = new Font(FontFamily.GenericMonospace, 17, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Text = ">"
+            };
+            nextLevel.Click += GameControls.NextLevelButton_Click;
+            controls.Add(nextLevel);
+        }
+
+        public override ControlsBuilder Clone()
+        {
+            return (ControlsBuilder) this.MemberwiseClone();
         }
 
         private void Timer_Tick(object sender, EventArgs eArgs)
