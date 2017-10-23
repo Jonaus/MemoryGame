@@ -45,6 +45,9 @@
     <Compile Include="Classes\FlipCommand.cs" />
     <Compile Include="Data\Card.cs" />
     <Compile Include="Classes\CardFactory.cs" />
+    <Compile Include="Data\PlayingCardButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Data\Cards.cs" />
     <Compile Include="Data\Clubs.cs" />
     <Compile Include="UserControls\ControlsBuilder.cs" />

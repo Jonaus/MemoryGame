@@ -19,12 +19,8 @@ namespace MemoryGame.Form
             Controls.AddRange(menuBuilder.Controls.ToArray());
 
             ControlsBuilder boardBuilder = new GameBoard();
-            /*gameScreen.Construct(boardBuilder);
-            Controls.AddRange(boardBuilder.Controls.ToArray());*/
-
-            ControlsBuilder boardBuilderCopy = boardBuilder.Clone();
-            gameScreen.Construct(boardBuilderCopy);
-            Controls.AddRange(boardBuilderCopy.Controls.ToArray());
+            gameScreen.Construct(boardBuilder);
+            Controls.AddRange(boardBuilder.Controls.ToArray());
         }
     }
 }
