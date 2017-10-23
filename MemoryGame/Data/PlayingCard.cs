@@ -54,6 +54,11 @@ namespace MemoryGame.Data
 	        if (Picture == nextPC.Picture && Symbol == nextPC.Symbol) return true;
 	        return false;
 	    }
+
+	    public override Card Clone()
+	    {
+	        return (Card) this.MemberwiseClone();
+	    }
 	}
 	
 }

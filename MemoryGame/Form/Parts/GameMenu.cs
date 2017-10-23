@@ -77,11 +77,6 @@ namespace MemoryGame.Form.Parts
             controls.Add(nextLevel);
         }
 
-        public override ControlsBuilder Clone()
-        {
-            return (ControlsBuilder) this.MemberwiseClone();
-        }
-
         private void Timer_Tick(object sender, EventArgs eArgs)
         {
             string elapsedMins = StopwatchControl.Elapsed().Minutes.ToString().PadLeft(2, '0');

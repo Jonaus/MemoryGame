@@ -31,5 +31,7 @@ namespace MemoryGame.Data
 	    public abstract void Unflip();
 
 	    public abstract bool Compare(Card next);
+
+	    public abstract Card Clone();
 	}
 }
