@@ -1,4 +1,4 @@
-﻿using MemoryGame.Form.Parts;
+using MemoryGame.Form.Parts;
 using MemoryGame.Properties;
 using System.Drawing;
 using System.Windows.Forms;
@@ -6,7 +6,7 @@ using MemoryGame.UserControls;
 
 namespace MemoryGame.Data
 {
-    class PlayingCardButton : Button
+    public class PlayingCardButton : Button
     {
         public PlayingCardButton(PlayingCard card)
         {
