@@ -52,6 +52,8 @@
     </Compile>
     <Compile Include="Data\Cards.cs" />
     <Compile Include="Data\Clubs.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Form\FormHelpers.cs" />
     <Compile Include="UserControls\ControlsBuilder.cs" />
     <Compile Include="Data\Diamonds.cs" />
     <Compile Include="Form\Form1.cs">

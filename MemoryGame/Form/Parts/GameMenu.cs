@@ -25,19 +25,35 @@ namespace MemoryGame.Form.Parts
         public override void BuildLabels()
         {
             int leftObPos = _restartButton != null ? _restartButton.Width + _restartButton.Left : 0;
-            Size labelSize = new Size(150, _menuHeight);
+            Size labelSize = new Size(85, _menuHeight);
             _timeLabel = new Label
             {
                 Size = labelSize,
                 Location = new Point
                 {
-                    X = Math.Max(GameScreen.Instance.SCREEN_WIDTH / 2 - labelSize.Width / 2, leftObPos),
+                    X = Math.Max(GameScreen.Instance.SCREEN_WIDTH / 2 - labelSize.Width / 2 + 50, leftObPos + 50),
                     Y = _menuHeight / 2 - labelSize.Height / 2
                 },
                 Font = new Font(FontFamily.GenericMonospace, 18),
                 TextAlign = ContentAlignment.MiddleCenter
             };
             controls.Add(_timeLabel);
+            
+            var _bestTimeLabel = new Label
+            {
+                Name = FormHelpers.BestTimeLabelName,
+                Size = labelSize,
+                Location = new Point
+                {
+                    X = GameScreen.Instance.SCREEN_WIDTH - labelSize.Width,
+                    Y = _menuHeight / 2 - labelSize.Height / 2
+                },
+                Font = new Font(FontFamily.GenericMonospace, 18, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                ForeColor = Color.Brown,
+                Text = "99:99"
+            };
+            controls.Add(_bestTimeLabel);
         }
 
         public override void BuildButtons()
@@ -79,10 +95,8 @@ namespace MemoryGame.Form.Parts
 
         private void Timer_Tick(object sender, EventArgs eArgs)
         {
-            string elapsedMins = StopwatchControl.Elapsed().Minutes.ToString().PadLeft(2, '0');
-            string elapsedSecs = StopwatchControl.Elapsed().Seconds.ToString().PadLeft(2, '0');
-            string elapsedMillis = StopwatchControl.Elapsed().Milliseconds.ToString();
-            if (_timeLabel != null) _timeLabel.Text = elapsedMins + ":" + elapsedSecs;
+            if (_timeLabel != null)
+                _timeLabel.Text = StopwatchControl.Elapsed().TimespanToTimerString();
         }
     }
 }

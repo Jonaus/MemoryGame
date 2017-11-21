@@ -2,6 +2,7 @@ using MemoryGame.Form.Parts;
 using MemoryGame.Properties;
 using System.Drawing;
 using System.Windows.Forms;
+using MemoryGame.Form;
 using MemoryGame.UserControls;
 
 namespace MemoryGame.Data
@@ -15,6 +16,7 @@ namespace MemoryGame.Data
             var startPoint = GameScreen.Instance.BOARD_STARTING_POINT;
             var cardSize = GameScreen.CARD_SIZE;
 
+            Name = FormHelpers.CardButtonName;
             Tag = card;
             BackgroundImage = Resources.flipped_card;
             BackColor = Color.White;

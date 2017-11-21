@@ -1,6 +1,7 @@
 using MemoryGame.Data;
 using System;
 using System.Windows.Forms;
+using MemoryGame.Form;
 
 namespace MemoryGame.UserControls
 {
@@ -13,8 +14,7 @@ namespace MemoryGame.UserControls
 
         public static void RestartButton_Click(object sender, EventArgs e)
         {
-            Application.Restart();
-            Environment.Exit(0);
+            FormHelpers.RestartGame();
         }
 
         public static void NextLevelButton_Click(object sender, EventArgs e)
@@ -29,6 +29,7 @@ namespace MemoryGame.UserControls
                 Button cardButton = (Button) sender;
                 Card card = (Card) cardButton.Tag;
                 card.Flip(cardButton);
+                FormHelpers.CheckIfBoardEmpty();
             }
             catch
             {
