@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using MemoryGame.Form.Parts;
 
 namespace MemoryGame.Classes
 {
@@ -22,8 +23,7 @@ namespace MemoryGame.Classes
         {
             BackgroundColor = Color.Chocolate;
             RequiredStreak = 5;
-            DescendTimeLimit = 7500;
-            AscendTimeLimit = 5000;
+            DescendTimeLimit = GameScreen.CARD_COUNT * GameScreen.CARD_COUNT * 1000 * 1;
         }
 
         public override void AddTime(double millis)
