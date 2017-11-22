@@ -1,6 +1,6 @@
 namespace MemoryGame.Form
 {
-    partial class MemoryGame
+    partial class MemoryGameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace MemoryGame.Form
         {
             this.SuspendLayout();
             // 
-            // MemoryGame
+            // MemoryGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

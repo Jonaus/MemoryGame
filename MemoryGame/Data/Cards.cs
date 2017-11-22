@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using MemoryGame.Form;
 
 namespace MemoryGame.Data
 {
@@ -27,6 +28,7 @@ namespace MemoryGame.Data
                     {
                         _flippedCards.Dequeue().Item1.Dispose();
                         _flippedCards.Dequeue().Item1.Dispose();
+                        (System.Windows.Forms.Form.ActiveForm as MemoryGameForm)?.CompleteObjective();
                     }
                 } catch { }
             }

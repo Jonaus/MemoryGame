@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="Classes\Command.cs" />
     <Compile Include="Classes\FlipCommand.cs" />
+    <Compile Include="Classes\GameFastState.cs" />
+    <Compile Include="Classes\GameMediumState.cs" />
+    <Compile Include="Classes\GameSlowState.cs" />
+    <Compile Include="Classes\GameState.cs" />
     <Compile Include="Data\Card.cs" />
     <Compile Include="Classes\CardFactory.cs" />
     <Compile Include="Data\PlayingCardButton.cs">

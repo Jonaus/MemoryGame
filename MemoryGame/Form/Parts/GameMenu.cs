@@ -50,7 +50,7 @@ namespace MemoryGame.Form.Parts
                 },
                 Font = new Font(FontFamily.GenericMonospace, 18, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
-                ForeColor = Color.Brown,
+                ForeColor = Color.DarkGreen,
                 Text = "99:99"
             };
             controls.Add(_bestTimeLabel);

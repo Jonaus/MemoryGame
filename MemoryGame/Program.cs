@@ -5,6 +5,8 @@ namespace MemoryGame
 {
     static class Program
     {
+        public static Form.MemoryGameForm Form;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -13,7 +15,8 @@ namespace MemoryGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form.MemoryGame());
+            Form = new Form.MemoryGameForm();
+            Application.Run(Form);
         }
     }
 }
