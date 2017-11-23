@@ -28,6 +28,7 @@ namespace MemoryGame.Data
                     {
                         _flippedCards.Dequeue().Item1.Dispose();
                         _flippedCards.Dequeue().Item1.Dispose();
+                        GrowingAnimation.Play();
                         (System.Windows.Forms.Form.ActiveForm as MemoryGameForm)?.CompleteObjective();
                     }
                 } catch { }

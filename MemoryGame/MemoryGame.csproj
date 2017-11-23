@@ -59,6 +59,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Form\FormHelpers.cs" />
     <Compile Include="Form\FormMemory.cs" />
+    <Compile Include="Form\GrowingAnimation.cs" />
     <Compile Include="Form\Memento.cs" />
     <Compile Include="Form\Parts\InfoMenu.cs" />
     <Compile Include="Form\Parts\InfoPanel.cs" />
