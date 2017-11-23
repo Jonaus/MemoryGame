@@ -45,7 +45,7 @@ namespace MemoryGame.Form.Parts
                 Size = labelSize,
                 Location = new Point
                 {
-                    X = GameScreen.Instance.SCREEN_WIDTH - labelSize.Width,
+                    X = GameScreen.Instance.SCREEN_WIDTH - 105 - labelSize.Width,
                     Y = _menuHeight / 2 - labelSize.Height / 2
                 },
                 Font = new Font(FontFamily.GenericMonospace, 18, FontStyle.Bold),
@@ -91,6 +91,17 @@ namespace MemoryGame.Form.Parts
             };
             nextLevel.Click += GameControls.NextLevelButton_Click;
             controls.Add(nextLevel);
+
+            Button infoButton = new Button()
+            {
+                Size = new Size(100, _menuHeight),
+                Location = new Point(GameScreen.Instance.SCREEN_WIDTH - 100 - 5, _restartButton.Location.Y),
+                Font = new Font(FontFamily.GenericMonospace, 17, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Text = "INFO"
+            };
+            infoButton.Click += GameControls.InfoButton_Click;
+            controls.Add(infoButton);
         }
 
         private void Timer_Tick(object sender, EventArgs eArgs)

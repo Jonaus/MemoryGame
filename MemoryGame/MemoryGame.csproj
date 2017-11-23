@@ -58,6 +58,10 @@
     <Compile Include="Data\Clubs.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Form\FormHelpers.cs" />
+    <Compile Include="Form\FormMemory.cs" />
+    <Compile Include="Form\Memento.cs" />
+    <Compile Include="Form\Parts\InfoMenu.cs" />
+    <Compile Include="Form\Parts\InfoPanel.cs" />
     <Compile Include="UserControls\ControlsBuilder.cs" />
     <Compile Include="Data\Diamonds.cs" />
     <Compile Include="Form\Form1.cs">
