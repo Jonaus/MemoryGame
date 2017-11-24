@@ -24,12 +24,13 @@ namespace MemoryGame.Data
             {
                 try
                 {
-                    if (_flippedCards.ElementAt(0).Item2.Compare(_flippedCards.ElementAt(1).Item2))
+                    var card1 = _flippedCards.ElementAt(0).Item2;
+                    var card2 = _flippedCards.ElementAt(1).Item2;
+                    if (card1.Compare(card2))
                     {
                         _flippedCards.Dequeue().Item1.Dispose();
                         _flippedCards.Dequeue().Item1.Dispose();
-                        GrowingAnimation.Play();
-                        (System.Windows.Forms.Form.ActiveForm as MemoryGameForm)?.CompleteObjective();
+                        (System.Windows.Forms.Form.ActiveForm as MemoryGameForm)?.CompleteObjective(card1);
                     }
                 } catch { }
             }

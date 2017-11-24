@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using MemoryGame.Data;
 
 namespace MemoryGame.Form
 {
@@ -12,10 +13,18 @@ namespace MemoryGame.Form
     {
         public GameState State;
         private readonly Stopwatch _objectivesWatch;
+        private Animation _rootAnimation;
 
         public MemoryGameForm()
         {
             InitializeComponent();
+            
+            _rootAnimation = new LowAnimation();
+            var medAnimation = new MediumAnimation();
+            var highAnimation = new HighAnimation();
+
+            _rootAnimation.SetSuccessor(medAnimation);
+            medAnimation.SetSuccessor(highAnimation);
 
             State = new GameSlowState(this);
             _objectivesWatch = new Stopwatch();
@@ -72,8 +81,12 @@ namespace MemoryGame.Form
             this.Controls.AddRange(memento.Controls.ToArray());
         }
 
-        public void CompleteObjective()
+        public void CompleteObjective(Card card)
         {
+            var symbol = '\0';
+            if (card is PlayingCard playingCard)
+                symbol = playingCard.Symbol;
+            _rootAnimation.ProcessRequest(new AnimationRequest(symbol));
             State.AddTime(_objectivesWatch.Elapsed.TotalMilliseconds);
             _objectivesWatch.Restart();
         }
