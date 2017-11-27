@@ -12,8 +12,11 @@ namespace MemoryGame.Form.Parts
     {
         private readonly int _cardCount = GameScreen.CARD_COUNT;
         private readonly string[] _playingCards = { "h", "s", "d", "c" };
+        private readonly string[] _textCards = {"l", "n"};
+        private readonly string[] _cards = {"pc", "tc"};
         private readonly Random _rnd = new Random();
         private readonly object _syncLock = new object();
+        private TemplateMethod _template;
 
         public GameBoard()
         {
@@ -25,6 +28,7 @@ namespace MemoryGame.Form.Parts
         public override void BuildButtons()
         {
             var cf = CardFactory.CreateFactory("pc");
+            _template = new PlayingCardTemplate();
             var positions = new List<Tuple<int, int>>();
 
             for (int x = 0; x < _cardCount; x++)
@@ -59,7 +63,21 @@ namespace MemoryGame.Form.Parts
             {
                 var index = _rnd.Next(0, 3);
                 string playingCard = _playingCards[index];
-                return cf.CreateCard(playingCard, x, y);
+                //string textCard = _textCards[index / 2];
+                //string card = _cards[index / 2];
+                //if (card == "pc")
+                //{
+                    var template = new PlayingCardTemplate();
+                    return template.CreateCard("pc", playingCard, x, y);
+                //}
+                /*if (card == "tc")
+                {
+                    var template = new TextCardTemplate();
+                    return template.CreateCard("tc", textCard, x, y);
+                }*/
+                //return null;
+                //return _template.CreateCard("pc", playingCard, x, y);
+                //return cf.CreateCard(playingCard, x, y);
             }
         }
     }

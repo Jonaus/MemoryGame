@@ -49,17 +49,21 @@
     <Compile Include="Classes\GameMediumState.cs" />
     <Compile Include="Classes\GameSlowState.cs" />
     <Compile Include="Classes\GameState.cs" />
+    <Compile Include="Classes\TextCardFactory.cs" />
     <Compile Include="Data\Animation.cs" />
     <Compile Include="Data\AnimationRequest.cs" />
     <Compile Include="Data\Card.cs" />
     <Compile Include="Classes\CardFactory.cs" />
     <Compile Include="Data\HighAnimation.cs" />
+    <Compile Include="Data\Letters.cs" />
     <Compile Include="Data\MediumAnimation.cs" />
+    <Compile Include="Data\Numbers.cs" />
     <Compile Include="Data\PlayingCardButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Data\Cards.cs" />
     <Compile Include="Data\Clubs.cs" />
+    <Compile Include="Data\TextCard.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Form\FormHelpers.cs" />
     <Compile Include="Form\FormMemory.cs" />
@@ -67,6 +71,9 @@
     <Compile Include="Form\Memento.cs" />
     <Compile Include="Form\Parts\InfoMenu.cs" />
     <Compile Include="Form\Parts\InfoPanel.cs" />
+    <Compile Include="PlayingCardTemplate.cs" />
+    <Compile Include="TemplateMethod.cs" />
+    <Compile Include="TextCardTemplate.cs" />
     <Compile Include="UserControls\ControlsBuilder.cs" />
     <Compile Include="Data\Diamonds.cs" />
     <Compile Include="Form\Form1.cs">

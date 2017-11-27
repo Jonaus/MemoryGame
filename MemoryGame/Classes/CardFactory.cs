@@ -2,6 +2,7 @@
  * @(#) CardFactory.cs
  */
 
+using System.Runtime.Remoting.Messaging;
 using MemoryGame.Data;
 
 namespace MemoryGame.Classes
@@ -13,6 +14,10 @@ namespace MemoryGame.Classes
 	        if (familyType.Equals("pc"))
 	        {
 	            return new PlayingCardFactory();
+	        }
+	        if (familyType.Equals("tc"))
+	        {
+	            return new TextCardFactory();
 	        }
 	        return null;
 	    }
