@@ -3,24 +3,30 @@
  */
 
 using System;
+using System.Drawing;
 
 namespace MemoryGame
 {
 	public class PlayingCardTemplate : TemplateMethod
 	{
-	    public override void AddText()
+	    public override bool NeedText()
 	    {
-	        Console.WriteLine(@"Playing Card Text");
+	        return false;
 	    }
 
-	    public override bool NeedPicture()
+	    public override string AddText()
+	    {
+	        return null;
+	    }
+
+	    public override bool NeedBackground()
 		{
 			return false;
 		}
 
-	    public override void AddPicture()
+	    public override Color AddBackground()
 	    {
-	        Console.WriteLine(@"Playing Card Picture");
+	        return Color.White;
 	    }
 	}
 	

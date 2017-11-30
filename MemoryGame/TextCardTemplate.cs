@@ -3,25 +3,32 @@
  */
 
 using System;
+using System.Drawing;
+using Random = MemoryGame.Data.Random;
 
 namespace MemoryGame
 {
 	public class TextCardTemplate : TemplateMethod
 	{
-	    public override void AddText()
+	    public override bool NeedText()
 	    {
-	        Console.WriteLine(@"Text Card Text");
-        }
+	        return true;
+	    }
 
-	    public override bool NeedPicture()
+	    public override string AddText()
+	    {
+	        return Random.GetLetter() + Random.GetNumber();
+	    }
+
+	    public override bool NeedBackground()
 		{
 			return true;
 		}
 
-	    public override void AddPicture()
+	    public override Color AddBackground()
 	    {
-	        Console.WriteLine(@"Text Card Picture");
-        }
+	        return Random.GetColor();
+	    }
 	}
 	
 }

@@ -4,17 +4,17 @@ namespace MemoryGame.Data
 {
     class AnimationRequest
     {
-        private char? _cardSymbol;
+        private string _cardText;
 
-        public AnimationRequest(char cardSymbol1)
+        public AnimationRequest(string cardText1)
         {
-            this._cardSymbol = cardSymbol1;
+            this._cardText = cardText1;
         }
 
-        public char? CardSymbol
+        public string CardText
         {
-            get { return _cardSymbol; }
-            set { _cardSymbol = value; }
+            get { return _cardText; }
+            set { _cardText = value; }
         }
     }
 }

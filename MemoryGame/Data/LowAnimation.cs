@@ -9,7 +9,7 @@ namespace MemoryGame.Data
     {
         public override void ProcessRequest(AnimationRequest request)
         {
-            if (Int32.TryParse(request.CardSymbol.ToString(), out var num) && num < 6)
+            if (Int32.TryParse(request.CardText, out var num) && num < 6)
             {
                 Play();
             }

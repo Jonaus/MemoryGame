@@ -4,35 +4,35 @@ using MemoryGame.Data;
 
 namespace MemoryGame.Classes
 {
-    class FlipCommand : Command
+    class TextCardFlipCommand : Command
     {
         private readonly Control _control;
-        private readonly Image _oldPicture;
-        private readonly Image _newPicture;
         private readonly string _oldText;
         private readonly string _newText;
+        private readonly Color _oldColor;
+        private readonly Color _newColor;
 
-        public FlipCommand(Control control, Image picture, string text)
+        public TextCardFlipCommand(Control control, string text, Color backgroundColor)
         {
             _control = control;
-            _oldPicture = control.BackgroundImage;
-            _newPicture = picture;
             _oldText = control.Text;
             _newText = text;
+            _oldColor = control.BackColor;
+            _newColor = backgroundColor;
         }
 
         public override void Execute()
         {
             Cards.Flip(_control);
-            _control.BackgroundImage = _newPicture;
             _control.Text = _newText;
+            _control.BackColor = _newColor;
             _control.Enabled = false;
         }
 
         public override void UnExecute()
         {
-            _control.BackgroundImage = _oldPicture;
             _control.Text = _oldText;
+            _control.BackColor = _oldColor;
             _control.Enabled = true;
         }
     }

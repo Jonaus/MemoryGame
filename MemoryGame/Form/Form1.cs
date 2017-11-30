@@ -83,10 +83,8 @@ namespace MemoryGame.Form
 
         public void CompleteObjective(Card card)
         {
-            var symbol = '\0';
-            if (card is PlayingCard playingCard)
-                symbol = playingCard.Symbol;
-            _rootAnimation.ProcessRequest(new AnimationRequest(symbol));
+            string text = card.Text;
+            _rootAnimation.ProcessRequest(new AnimationRequest(text));
             State.AddTime(_objectivesWatch.Elapsed.TotalMilliseconds);
             _objectivesWatch.Restart();
         }

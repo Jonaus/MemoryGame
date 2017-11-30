@@ -8,7 +8,7 @@ namespace MemoryGame.Data
 {
 	public class Letters : TextCard
 	{
-        public Letters(int x, int y) : base(x, y, null)
+        public Letters(int x, int y) : base(x, y, Random.GetLetter())
 	    {
 	    }
 	}

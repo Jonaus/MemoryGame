@@ -44,7 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Command.cs" />
-    <Compile Include="Classes\FlipCommand.cs" />
+    <Compile Include="Classes\TextCardFlipCommand.cs" />
+    <Compile Include="Classes\PlayingCardFlipCommand.cs" />
     <Compile Include="Classes\GameFastState.cs" />
     <Compile Include="Classes\GameMediumState.cs" />
     <Compile Include="Classes\GameSlowState.cs" />
@@ -58,11 +59,12 @@
     <Compile Include="Data\Letters.cs" />
     <Compile Include="Data\MediumAnimation.cs" />
     <Compile Include="Data\Numbers.cs" />
-    <Compile Include="Data\PlayingCardButton.cs">
+    <Compile Include="Data\CardButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Data\Cards.cs" />
     <Compile Include="Data\Clubs.cs" />
+    <Compile Include="Data\Random.cs" />
     <Compile Include="Data\TextCard.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Form\FormHelpers.cs" />

@@ -11,30 +11,27 @@ namespace MemoryGame.Data
 {
     public class PlayingCard : Card
 	{
-	    private readonly char[] _symbols = { '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K', 'A' };
-        private readonly Random _rnd = new Random();
-        private readonly object _syncLock = new object();
+	    private static readonly char[] Symbols = { '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K', 'A' };
+        private static readonly System.Random Rnd = new System.Random();
+        private static readonly object SyncLock = new object();
 
-        public char Symbol { get; set; }
-
-        public PlayingCard(int x, int y, Bitmap picture) : base(x, y, picture)
+        public PlayingCard(int x, int y, Bitmap picture) : base(x, y, picture, RandomSymbol().ToString())
         {
-            Symbol = RandomSymbol();
         }
 
-	    private char RandomSymbol()
+	    private static char RandomSymbol()
 	    {
-	        lock (_syncLock)
+	        lock (SyncLock)
 	        {
-	            var index = _rnd.Next(0, 11);
-	            return _symbols[index];
+	            var index = Rnd.Next(0, 12);
+	            return Symbols[index];
             }
 	    }
 
 	    public override void Flip(Control control)
 	    {
 	        // TODO: make Card extend Button/Control class and pass self as param
-	        Command command = new FlipCommand(control, Picture, Symbol.ToString());
+	        Command command = new PlayingCardFlipCommand(control, Picture, Text);
 	        command.Execute();
 
 	        _commands.Push(command);
@@ -51,13 +48,8 @@ namespace MemoryGame.Data
 	    public override bool Compare(Card next)
 	    {
 	        if (!(next is PlayingCard nextPC)) return false;
-	        if (Picture == nextPC.Picture && Symbol == nextPC.Symbol) return true;
+	        if (Picture == nextPC.Picture && Text == nextPC.Text) return true;
 	        return false;
-	    }
-
-	    public override Card Clone()
-	    {
-	        return (Card) this.MemberwiseClone();
 	    }
 	}
 	

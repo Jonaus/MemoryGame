@@ -14,9 +14,10 @@ namespace MemoryGame.Form.Parts
         private readonly string[] _playingCards = { "h", "s", "d", "c" };
         private readonly string[] _textCards = {"l", "n"};
         private readonly string[] _cards = {"pc", "tc"};
-        private readonly Random _rnd = new Random();
+        private readonly System.Random _rnd = new System.Random();
         private readonly object _syncLock = new object();
-        private TemplateMethod _template;
+        private TemplateMethod _pcTemplate;
+        private TemplateMethod _tcTemplate;
 
         public GameBoard()
         {
@@ -28,7 +29,9 @@ namespace MemoryGame.Form.Parts
         public override void BuildButtons()
         {
             var cf = CardFactory.CreateFactory("pc");
-            _template = new PlayingCardTemplate();
+            _pcTemplate = new PlayingCardTemplate();
+            _tcTemplate = new TextCardTemplate();
+
             var positions = new List<Tuple<int, int>>();
 
             for (int x = 0; x < _cardCount; x++)
@@ -39,7 +42,10 @@ namespace MemoryGame.Form.Parts
                 }
             }
 
-            positions = positions.OrderBy(p => _rnd.Next()).ToList();
+            lock (_syncLock)
+            {
+                positions = positions.OrderBy(p => _rnd.Next()).ToList();
+            }
             for (int i = 0; i < positions.Count; i += 2)
             {
                 Card card = CreateRandomCard(cf, positions[i]);
@@ -47,8 +53,8 @@ namespace MemoryGame.Form.Parts
                 cardClone.X = positions[i + 1].Item1;
                 cardClone.Y = positions[i + 1].Item2;
 
-                controls.Add(new PlayingCardButton((PlayingCard)card));
-                controls.Add(new PlayingCardButton((PlayingCard)cardClone));
+                controls.Add(new CardButton(card));
+                controls.Add(new CardButton(cardClone));
             }
         }
 
@@ -59,26 +65,32 @@ namespace MemoryGame.Form.Parts
 
         private Card CreateRandomCard(CardFactory cf, int x, int y)
         {
+            int index;
             lock (_syncLock)
             {
-                var index = _rnd.Next(0, 3);
-                string playingCard = _playingCards[index];
-                //string textCard = _textCards[index / 2];
-                //string card = _cards[index / 2];
-                //if (card == "pc")
-                //{
-                    var template = new PlayingCardTemplate();
-                    return template.CreateCard("pc", playingCard, x, y);
-                //}
-                /*if (card == "tc")
-                {
-                    var template = new TextCardTemplate();
-                    return template.CreateCard("tc", textCard, x, y);
-                }*/
-                //return null;
-                //return _template.CreateCard("pc", playingCard, x, y);
-                //return cf.CreateCard(playingCard, x, y);
+                index = _rnd.Next(0, 4);
             }
+            string playingCard = _playingCards[index];
+            lock (_syncLock)
+            {
+                index = _rnd.Next(0, 2);
+            }
+            string textCard = _textCards[index];
+            lock (_syncLock)
+            {
+                index = _rnd.Next(0, 2);
+            }
+            string card = _cards[index];
+            if (card == "pc")
+            {
+                return _pcTemplate.CreateCard("pc", playingCard, x, y);
+            }
+            if (card == "tc")
+            {
+                return _tcTemplate.CreateCard("tc", textCard, x, y);
+            }
+            return null;
+            //return cf.CreateCard(playingCard, x, y);
         }
     }
 }

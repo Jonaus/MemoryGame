@@ -7,9 +7,9 @@ using MemoryGame.UserControls;
 
 namespace MemoryGame.Data
 {
-    public class PlayingCardButton : Button
+    public sealed class CardButton : Button
     {
-        public PlayingCardButton(PlayingCard card)
+        public CardButton(Card card)
         {
             var xOffset = GameScreen.Instance.SPACING_SIZE * card.X;
             var yOffset = GameScreen.Instance.SPACING_SIZE * card.Y;
@@ -18,9 +18,13 @@ namespace MemoryGame.Data
 
             Name = FormHelpers.CardButtonName;
             Tag = card;
-            BackgroundImage = Resources.flipped_card;
+
+            if (card is PlayingCard)
+            {
+                BackgroundImage = Resources.flipped_card;
+                BackgroundImageLayout = ImageLayout.Stretch;
+            }
             BackColor = Color.White;
-            BackgroundImageLayout = ImageLayout.Stretch;
             Left = startPoint.X + xOffset + cardSize * card.X;
             Top = startPoint.Y + yOffset + cardSize * card.Y;
             Width = cardSize;
