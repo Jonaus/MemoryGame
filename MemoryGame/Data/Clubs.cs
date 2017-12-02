@@ -4,16 +4,21 @@
 
 using System.Drawing;
 using MemoryGame.Properties;
+using MemoryGame.Resources;
 
 namespace MemoryGame.Data
 {
 	public class Clubs : PlayingCard
 	{
-	    private new static readonly Bitmap Picture = Resources.clubs;
-
-        public Clubs(int x, int y) : base(x, y, Picture)
+        public Clubs(int x, int y) : base(x, y, GetImage())
 	    {
 	    }
-	}
+
+	    private static Bitmap GetImage()
+	    {
+	        IPlayingCardImage pci = PlayingCardImageFactory.GetImage("../../Resources/clubs.png");
+	        return pci.ToBitmap();
+	    }
+    }
 	
 }

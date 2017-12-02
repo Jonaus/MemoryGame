@@ -74,6 +74,13 @@
     <Compile Include="Form\Parts\InfoMenu.cs" />
     <Compile Include="Form\Parts\InfoPanel.cs" />
     <Compile Include="PlayingCardTemplate.cs" />
+    <Compile Include="Resources\FlipperCardImage.cs" />
+    <Compile Include="Resources\SpadesImage.cs" />
+    <Compile Include="Resources\HeartsImage.cs" />
+    <Compile Include="Resources\DiamondsImage.cs" />
+    <Compile Include="Resources\ClubsImage.cs" />
+    <Compile Include="Resources\IPlayingCardImage.cs" />
+    <Compile Include="Resources\PlayingCardImageFactory.cs" />
     <Compile Include="TemplateMethod.cs" />
     <Compile Include="TextCardTemplate.cs" />
     <Compile Include="UserControls\ControlsBuilder.cs" />

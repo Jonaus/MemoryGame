@@ -3,6 +3,7 @@ using MemoryGame.Properties;
 using System.Drawing;
 using System.Windows.Forms;
 using MemoryGame.Form;
+using MemoryGame.Resources;
 using MemoryGame.UserControls;
 
 namespace MemoryGame.Data
@@ -21,7 +22,9 @@ namespace MemoryGame.Data
 
             if (card is PlayingCard)
             {
-                BackgroundImage = Resources.flipped_card;
+                IPlayingCardImage pci = PlayingCardImageFactory.GetImage("../../Resources/flipped_card.png");
+                
+                BackgroundImage = pci.ToBitmap();
                 BackgroundImageLayout = ImageLayout.Stretch;
             }
             BackColor = Color.White;

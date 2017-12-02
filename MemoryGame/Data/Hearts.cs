@@ -4,15 +4,20 @@
 
 using System.Drawing;
 using MemoryGame.Properties;
+using MemoryGame.Resources;
 
 namespace MemoryGame.Data
 {
 	public class Hearts : PlayingCard
 	{
-	    private new static readonly Bitmap Picture = Resources.hearts;
-
-	    public Hearts(int x, int y) : base(x, y, Picture)
+	    public Hearts(int x, int y) : base(x, y, GetImage())
 	    {
+	    }
+
+	    private static Bitmap GetImage()
+	    {
+	        IPlayingCardImage pci = PlayingCardImageFactory.GetImage("../../Resources/hearts.png");
+	        return pci.ToBitmap();
 	    }
 	}
 	
