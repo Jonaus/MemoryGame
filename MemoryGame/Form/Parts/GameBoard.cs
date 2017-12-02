@@ -11,8 +11,6 @@ namespace MemoryGame.Form.Parts
     class GameBoard : ControlsBuilder
     {
         private readonly int _cardCount = GameScreen.CARD_COUNT;
-        private readonly string[] _playingCards = { "h", "s", "d", "c" };
-        private readonly string[] _textCards = {"l", "n"};
         private readonly string[] _cards = {"pc", "tc"};
         private readonly System.Random _rnd = new System.Random();
         private readonly object _syncLock = new object();
@@ -28,7 +26,6 @@ namespace MemoryGame.Form.Parts
 
         public override void BuildButtons()
         {
-            var cf = CardFactory.CreateFactory("pc");
             _pcTemplate = new PlayingCardTemplate();
             _tcTemplate = new TextCardTemplate();
 
@@ -48,7 +45,7 @@ namespace MemoryGame.Form.Parts
             }
             for (int i = 0; i < positions.Count; i += 2)
             {
-                Card card = CreateRandomCard(cf, positions[i]);
+                Card card = CreateRandomCard(positions[i]);
                 Card cardClone = card.Clone();
                 cardClone.X = positions[i + 1].Item1;
                 cardClone.Y = positions[i + 1].Item2;
@@ -58,24 +55,14 @@ namespace MemoryGame.Form.Parts
             }
         }
 
-        private Card CreateRandomCard(CardFactory cf, Tuple<int, int> position)
+        private Card CreateRandomCard(Tuple<int, int> position)
         {
-            return CreateRandomCard(cf, position.Item1, position.Item2);
+            return CreateRandomCard(position.Item1, position.Item2);
         }
 
-        private Card CreateRandomCard(CardFactory cf, int x, int y)
+        private Card CreateRandomCard(int x, int y)
         {
             int index;
-            lock (_syncLock)
-            {
-                index = _rnd.Next(0, 4);
-            }
-            string playingCard = _playingCards[index];
-            lock (_syncLock)
-            {
-                index = _rnd.Next(0, 2);
-            }
-            string textCard = _textCards[index];
             lock (_syncLock)
             {
                 index = _rnd.Next(0, 2);
@@ -83,14 +70,13 @@ namespace MemoryGame.Form.Parts
             string card = _cards[index];
             if (card == "pc")
             {
-                return _pcTemplate.CreateCard("pc", playingCard, x, y);
+                return _pcTemplate.CreateCard(x, y);
             }
             if (card == "tc")
             {
-                return _tcTemplate.CreateCard("tc", textCard, x, y);
+                return _tcTemplate.CreateCard(x, y);
             }
             return null;
-            //return cf.CreateCard(playingCard, x, y);
         }
     }
 }

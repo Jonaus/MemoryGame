@@ -9,12 +9,10 @@ using MemoryGame.Data;
 namespace MemoryGame
 {
 	public abstract class TemplateMethod
-	{
-		public Card CreateCard(string familyType, string cardType, int x, int y)
-		{
-		    var cf = CardFactory.CreateFactory(familyType);
-
-		    var card = cf.CreateCard(cardType, x, y);
+    {
+        public virtual Card CreateCard(int x, int y)
+        {
+            Card card = GetCard(x, y);
 
 		    if (NeedText())
 		    {
@@ -27,13 +25,15 @@ namespace MemoryGame
 		    return card;
 		}
 
-	    public abstract bool NeedText();
+	    protected abstract Card GetCard(int x, int y);
 
-		public abstract string AddText();
+	    protected abstract bool NeedText();
 
-	    public abstract bool NeedBackground();
+		protected abstract string AddText();
 
-		public abstract Color AddBackground();
+        protected abstract bool NeedBackground();
+
+        protected abstract Color AddBackground();
 		
 	}
 	

@@ -4,28 +4,46 @@
 
 using System;
 using System.Drawing;
+using MemoryGame.Classes;
+using MemoryGame.Data;
 using Random = MemoryGame.Data.Random;
 
 namespace MemoryGame
 {
 	public class TextCardTemplate : TemplateMethod
 	{
-	    public override bool NeedText()
+	    private readonly string[] _textCards = { "l", "n" };
+        private readonly System.Random _rnd = new System.Random();
+	    private readonly object _syncLock = new object();
+
+	    protected override Card GetCard(int x, int y)
+	    {
+	        var cf = CardFactory.CreateFactory("tc");
+	        int index;
+	        lock (_syncLock)
+	        {
+	            index = _rnd.Next(0, 2);
+	        }
+	        string cardType = _textCards[index];
+	        return cf.CreateCard(cardType, x, y);
+	    }
+
+	    protected override bool NeedText()
 	    {
 	        return true;
 	    }
 
-	    public override string AddText()
+	    protected override string AddText()
 	    {
 	        return Random.GetLetter() + Random.GetNumber();
 	    }
 
-	    public override bool NeedBackground()
+	    protected override bool NeedBackground()
 		{
 			return true;
 		}
 
-	    public override Color AddBackground()
+	    protected override Color AddBackground()
 	    {
 	        return Random.GetColor();
 	    }
