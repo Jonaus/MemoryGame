@@ -19,7 +19,7 @@ namespace MemoryGame.Classes
 	        {
 	            return new TextCardFactory();
 	        }
-	        return null;
+	        return new NullCardFactory();
 	    }
 
 	    public abstract Card CreateCard( string cardType, int x, int y);

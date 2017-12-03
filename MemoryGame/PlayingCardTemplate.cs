@@ -21,7 +21,7 @@ namespace MemoryGame
 	        int index;
 	        lock (_syncLock)
 	        {
-	            index = _rnd.Next(0, 4);
+	            index = _rnd.Next(0, _playingCards.Length);
 	        }
 	        string cardType = _playingCards[index];
 	        return cf.CreateCard(cardType, x, y);

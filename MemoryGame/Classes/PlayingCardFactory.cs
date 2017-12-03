@@ -26,7 +26,7 @@ namespace MemoryGame.Classes
 	        {
 	            return new Diamonds(x, y);
 	        }
-	        return null;
+	        return new NullCard(x, y);
 	    }
 	}
 	

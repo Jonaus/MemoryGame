@@ -22,7 +22,7 @@ namespace MemoryGame
 	        int index;
 	        lock (_syncLock)
 	        {
-	            index = _rnd.Next(0, 2);
+	            index = _rnd.Next(0, _textCards.Length);
 	        }
 	        string cardType = _textCards[index];
 	        return cf.CreateCard(cardType, x, y);

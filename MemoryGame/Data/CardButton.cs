@@ -25,8 +25,12 @@ namespace MemoryGame.Data
                 IPlayingCardImage pci = PlayingCardImageFactory.GetImage("../../Resources/flipped_card.png");
                 
                 BackgroundImage = pci.ToBitmap();
-                BackgroundImageLayout = ImageLayout.Stretch;
             }
+            if (card is NullCard)
+            {
+                BackgroundImage = Properties.Resources._null;
+            }
+            BackgroundImageLayout = ImageLayout.Stretch;
             BackColor = Color.White;
             Left = startPoint.X + xOffset + cardSize * card.X;
             Top = startPoint.Y + yOffset + cardSize * card.Y;

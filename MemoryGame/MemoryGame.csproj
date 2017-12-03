@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Command.cs" />
+    <Compile Include="Classes\NullCardFactory.cs" />
     <Compile Include="Classes\TextCardFlipCommand.cs" />
     <Compile Include="Classes\PlayingCardFlipCommand.cs" />
     <Compile Include="Classes\GameFastState.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Data\HighAnimation.cs" />
     <Compile Include="Data\Letters.cs" />
     <Compile Include="Data\MediumAnimation.cs" />
+    <Compile Include="Data\NullCard.cs" />
     <Compile Include="Data\Numbers.cs" />
     <Compile Include="Data\CardButton.cs">
       <SubType>Component</SubType>
@@ -143,6 +145,8 @@
   <ItemGroup>
     <None Include="Resources\flipped_card.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\null.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -65,7 +65,7 @@ namespace MemoryGame.Form.Parts
             int index;
             lock (_syncLock)
             {
-                index = _rnd.Next(0, 2);
+                index = _rnd.Next(0, _cards.Length);
             }
             string card = _cards[index];
             if (card == "pc")

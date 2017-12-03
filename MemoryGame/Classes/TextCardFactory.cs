@@ -18,7 +18,7 @@ namespace MemoryGame.Classes
 	        {
 	            return new Numbers(x, y);
 	        }
-	        return null;
+	        return new NullCard(x, y);
         }
 	}
 	
