@@ -3,10 +3,9 @@
  */
 
 using System.Drawing;
-using MemoryGame.Classes;
 using MemoryGame.Data;
 
-namespace MemoryGame
+namespace MemoryGame.Classes
 {
 	public abstract class TemplateMethod
     {

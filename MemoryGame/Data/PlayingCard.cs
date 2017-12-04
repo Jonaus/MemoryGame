@@ -23,7 +23,7 @@ namespace MemoryGame.Data
 	    {
 	        lock (SyncLock)
 	        {
-	            var index = Rnd.Next(0, 12);
+	            var index = Rnd.Next(0, Symbols.Length);
 	            return Symbols[index];
             }
 	    }
@@ -51,6 +51,11 @@ namespace MemoryGame.Data
 	        if (Picture == nextPC.Picture && Text == nextPC.Text) return true;
 	        return false;
 	    }
+
+	    public override Card CreateComparable()
+	    {
+	        return (Card)this.MemberwiseClone();
+        }
 	}
 	
 }

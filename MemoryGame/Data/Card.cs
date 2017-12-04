@@ -44,9 +44,6 @@ namespace MemoryGame.Data
 
 	    public abstract bool Compare(Card next);
 
-	    public virtual Card Clone()
-	    {
-            return (Card)this.MemberwiseClone();
-        }
+	    public abstract Card CreateComparable();
 	}
 }

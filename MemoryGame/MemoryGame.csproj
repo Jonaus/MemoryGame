@@ -56,7 +56,10 @@
     <Compile Include="Data\AnimationRequest.cs" />
     <Compile Include="Data\Card.cs" />
     <Compile Include="Classes\CardFactory.cs" />
+    <Compile Include="Data\Context.cs" />
+    <Compile Include="Data\Expression.cs" />
     <Compile Include="Data\HighAnimation.cs" />
+    <Compile Include="Data\HundredExpression.cs" />
     <Compile Include="Data\Letters.cs" />
     <Compile Include="Data\MediumAnimation.cs" />
     <Compile Include="Data\NullCard.cs" />
@@ -66,8 +69,12 @@
     </Compile>
     <Compile Include="Data\Cards.cs" />
     <Compile Include="Data\Clubs.cs" />
+    <Compile Include="Data\OneExpression.cs" />
     <Compile Include="Data\Random.cs" />
+    <Compile Include="Data\RomanCard.cs" />
+    <Compile Include="Data\TenExpression.cs" />
     <Compile Include="Data\TextCard.cs" />
+    <Compile Include="Data\ThousandExpression.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Form\FormHelpers.cs" />
     <Compile Include="Form\FormMemory.cs" />
@@ -75,7 +82,7 @@
     <Compile Include="Form\Memento.cs" />
     <Compile Include="Form\Parts\InfoMenu.cs" />
     <Compile Include="Form\Parts\InfoPanel.cs" />
-    <Compile Include="PlayingCardTemplate.cs" />
+    <Compile Include="Classes\PlayingCardTemplate.cs" />
     <Compile Include="Resources\FlipperCardImage.cs" />
     <Compile Include="Resources\SpadesImage.cs" />
     <Compile Include="Resources\HeartsImage.cs" />
@@ -83,8 +90,8 @@
     <Compile Include="Resources\ClubsImage.cs" />
     <Compile Include="Resources\IPlayingCardImage.cs" />
     <Compile Include="Resources\PlayingCardImageFactory.cs" />
-    <Compile Include="TemplateMethod.cs" />
-    <Compile Include="TextCardTemplate.cs" />
+    <Compile Include="Classes\TemplateMethod.cs" />
+    <Compile Include="Classes\TextCardTemplate.cs" />
     <Compile Include="UserControls\ControlsBuilder.cs" />
     <Compile Include="Data\Diamonds.cs" />
     <Compile Include="Form\Form1.cs">

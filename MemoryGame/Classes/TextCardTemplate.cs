@@ -2,13 +2,11 @@
  * @(#) TextCardTemplate.cs
  */
 
-using System;
 using System.Drawing;
-using MemoryGame.Classes;
 using MemoryGame.Data;
 using Random = MemoryGame.Data.Random;
 
-namespace MemoryGame
+namespace MemoryGame.Classes
 {
 	public class TextCardTemplate : TemplateMethod
 	{

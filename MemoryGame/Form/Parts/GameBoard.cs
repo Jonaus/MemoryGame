@@ -11,7 +11,7 @@ namespace MemoryGame.Form.Parts
     class GameBoard : ControlsBuilder
     {
         private readonly int _cardCount = GameScreen.CARD_COUNT;
-        private readonly string[] _cards = {"pc", "tc"};
+        private readonly string[] _cards = {"pc", "tc", "rc"};
         private readonly System.Random _rnd = new System.Random();
         private readonly object _syncLock = new object();
         private TemplateMethod _pcTemplate;
@@ -46,7 +46,7 @@ namespace MemoryGame.Form.Parts
             for (int i = 0; i < positions.Count; i += 2)
             {
                 Card card = CreateRandomCard(positions[i]);
-                Card cardClone = card.Clone();
+                Card cardClone = card.CreateComparable();
                 cardClone.X = positions[i + 1].Item1;
                 cardClone.Y = positions[i + 1].Item2;
 
@@ -75,6 +75,10 @@ namespace MemoryGame.Form.Parts
             if (card == "tc")
             {
                 return _tcTemplate.CreateCard(x, y);
+            }
+            if (card == "rc")
+            {
+                return new RomanCard(x, y);
             }
             return null;
         }

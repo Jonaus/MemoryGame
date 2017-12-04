@@ -10,6 +10,13 @@ namespace MemoryGame.Data
     {
         private const int MAX_FLIPPED = 2;
         private static Queue<Tuple<Control, Card>> _flippedCards = new Queue<Tuple<Control, Card>>();
+        private static List<Expression> _tree = new List<Expression>
+        {
+            new ThousandExpression(),
+            new HundredExpression(),
+            new TenExpression(),
+            new OneExpression()
+        };
 
         public static void Flip(Control ob)
         {
@@ -31,8 +38,28 @@ namespace MemoryGame.Data
                         _flippedCards.Dequeue().Item1.Dispose();
                         _flippedCards.Dequeue().Item1.Dispose();
                         (System.Windows.Forms.Form.ActiveForm as MemoryGameForm)?.CompleteObjective(card1);
+                        if (card1 is RomanCard && card2 is RomanCard)
+                        {
+                            string roman1 = card1.Text;
+                            string roman2 = card2.Text;
+                            Context context1 = new Context(roman1);
+                            Context context2 = new Context(roman2);
+                            foreach (Expression expression in _tree)
+                            {
+                                expression.Interpret(context1);
+                                expression.Interpret(context2);
+                            }
+                            int num1 = context1.Output;
+                            int num2 = context2.Output;
+
+                            Console.WriteLine(@"{0}({1}) + {2}({3}) = {4}", roman1, num1, roman2, num2, num1 + num2);
+                        }
                     }
-                } catch { }
+                }
+                catch
+                {
+                    // ignored
+                }
             }
             if (_flippedCards.Count > MAX_FLIPPED)
             {

@@ -2,12 +2,10 @@
  * @(#) PlayingCardTemplate.cs
  */
 
-using System;
 using System.Drawing;
-using MemoryGame.Classes;
 using MemoryGame.Data;
 
-namespace MemoryGame
+namespace MemoryGame.Classes
 {
 	public class PlayingCardTemplate : TemplateMethod
 	{

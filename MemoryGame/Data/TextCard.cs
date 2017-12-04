@@ -2,7 +2,6 @@
  * @(#) TextCard.cs
  */
 
-using System.Drawing;
 using System.Windows.Forms;
 using MemoryGame.Classes;
 
@@ -36,6 +35,11 @@ namespace MemoryGame.Data
 	        if (!(next is TextCard nextTC)) return false;
 	        if (BackgroundColor == nextTC.BackgroundColor && Text == nextTC.Text) return true;
 	        return false;
+        }
+
+	    public override Card CreateComparable()
+	    {
+	        return (Card)this.MemberwiseClone();
         }
 	}
 	

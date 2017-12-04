@@ -28,6 +28,9 @@ namespace MemoryGame.Data
             return false;
         }
 
-        
+        public override Card CreateComparable()
+        {
+            return (Card)this.MemberwiseClone();
+        }
     }
 }
