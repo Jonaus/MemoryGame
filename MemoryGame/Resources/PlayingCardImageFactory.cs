@@ -11,33 +11,33 @@ namespace MemoryGame.Resources
     {
         private static readonly Hashtable Hash = new Hashtable();
 
-        public static IPlayingCardImage GetImage(string imagePath)
+        public static IPlayingCardImage GetImage(string image)
         {
-            IPlayingCardImage pci = (IPlayingCardImage) Hash[imagePath];
+            IPlayingCardImage pci = (IPlayingCardImage) Hash[image];
 
             if (pci != null) return pci;
-            if (imagePath.Equals("../../Resources/clubs.png"))
+            if (image.Equals("clubs"))
             {
-                pci = new ClubsImage(imagePath);
+                pci = new ClubsImage();
             }
-            if (imagePath.Equals("../../Resources/diamonds.png"))
+            if (image.Equals("diamonds"))
             {
-                pci = new DiamondsImage(imagePath);
+                pci = new DiamondsImage();
             }
-            if (imagePath.Equals("../../Resources/hearts.png"))
+            if (image.Equals("hearts"))
             {
-                pci = new HeartsImage(imagePath);
+                pci = new HeartsImage();
             }
-            if (imagePath.Equals("../../Resources/spades.png"))
+            if (image.Equals("spades"))
             {
-                pci = new SpadesImage(imagePath);
+                pci = new SpadesImage();
             }
-            if (imagePath.Equals("../../Resources/flipped_card.png"))
+            if (image.Equals("flipped_card"))
             {
-                pci = new FlippedCardImage(imagePath);
+                pci = new FlippedCardImage();
             }
 
-            Hash.Add(imagePath, pci);
+            Hash.Add(image, pci);
 
             return pci;
         }

@@ -11,9 +11,9 @@ namespace MemoryGame.Resources
     {
         private readonly Bitmap _bitmap;
 
-        public SpadesImage(string fileName)
+        public SpadesImage()
         {
-            _bitmap = new Bitmap(fileName);
+            _bitmap = new Bitmap("../../Resources/spades.png");
         }
 
         public Bitmap ToBitmap()

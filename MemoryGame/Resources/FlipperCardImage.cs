@@ -11,9 +11,9 @@ namespace MemoryGame.Resources
     {
         private readonly Bitmap _bitmap;
 
-        public FlippedCardImage(string fileName)
+        public FlippedCardImage()
         {
-            _bitmap = new Bitmap(fileName);
+            _bitmap = new Bitmap("../../Resources/flipped_card.png");
         }
 
         public Bitmap ToBitmap()

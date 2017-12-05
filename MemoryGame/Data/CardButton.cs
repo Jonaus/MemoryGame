@@ -22,7 +22,7 @@ namespace MemoryGame.Data
 
             if (card is PlayingCard)
             {
-                IPlayingCardImage pci = PlayingCardImageFactory.GetImage("../../Resources/flipped_card.png");
+                IPlayingCardImage pci = PlayingCardImageFactory.GetImage("flipped_card");
                 
                 BackgroundImage = pci.ToBitmap();
             }

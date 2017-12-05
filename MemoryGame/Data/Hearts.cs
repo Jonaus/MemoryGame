@@ -16,7 +16,7 @@ namespace MemoryGame.Data
 
 	    private static Bitmap GetImage()
 	    {
-	        IPlayingCardImage pci = PlayingCardImageFactory.GetImage("../../Resources/hearts.png");
+	        IPlayingCardImage pci = PlayingCardImageFactory.GetImage("hearts");
 	        return pci.ToBitmap();
 	    }
 	}

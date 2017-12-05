@@ -11,9 +11,9 @@ namespace MemoryGame.Resources
     {
         private readonly Bitmap _bitmap;
 
-        public ClubsImage(string fileName)
+        public ClubsImage()
         {
-            _bitmap = new Bitmap(fileName);
+            _bitmap = new Bitmap("../../Resources/clubs.png");
         }
 
         public Bitmap ToBitmap()
