@@ -80,7 +80,7 @@ namespace MemoryGame.Form.Parts
             {
                 return new RomanCard(x, y);
             }
-            return null;
+            return new NullCard(x, y);
         }
     }
 }
